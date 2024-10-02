@@ -47,9 +47,7 @@ SELECT
     RANK() OVER (ORDER BY salary DESC) AS salary_rank
 FROM 
     Employees;
-Step 7: Use a CTE to Find the Top 2 Highest Paid Employees in Each Department
-sql
-Copy code
+
 WITH RankedEmployees AS (
     SELECT 
         emp_id,
