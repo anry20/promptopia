@@ -1,11 +1,6 @@
-Step 1: Create the Database
-sql
-Copy code
 CREATE DATABASE CompanyDB;
 USE CompanyDB;
-Step 2: Create the Tables
-sql
-Copy code
+
 CREATE TABLE Departments (
     department_id INT PRIMARY KEY,
     department_name VARCHAR(100)
@@ -19,9 +14,7 @@ CREATE TABLE Employees (
     salary DECIMAL(10, 2),
     FOREIGN KEY (department_id) REFERENCES Departments(department_id)
 );
-Step 3: Insert Sample Data
-sql
-Copy code
+
 INSERT INTO Departments (department_id, department_name) VALUES
 (1, 'Human Resources'),
 (2, 'Finance'),
@@ -31,9 +24,7 @@ INSERT INTO Employees (emp_id, first_name, last_name, department_id, salary) VAL
 (1, 'John', 'Doe', 1, 50000.00),
 (2, 'Jane', 'Smith', 2, 70000.00),
 (3, 'Emily', 'Johnson', 3, 60000.00);
-Step 4: Retrieve Employees with Department Names using INNER JOIN
-sql
-Copy code
+
 SELECT 
     e.emp_id,
     e.first_name,
@@ -43,15 +34,11 @@ FROM
     Employees e
 INNER JOIN 
     Departments d ON e.department_id = d.department_id;
-Step 5: Find Employees Earning Above the Average Salary
-sql
-Copy code
+
 SELECT * 
 FROM Employees 
 WHERE salary > (SELECT AVG(salary) FROM Employees);
-Step 6: Use the RANK() Window Function to Rank Employees by Salary
-sql
-Copy code
+
 SELECT 
     emp_id,
     first_name,
